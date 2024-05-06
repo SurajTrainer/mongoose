@@ -1,6 +1,31 @@
 
 import mongoose from 'mongoose'
 
-const doctorSchema = new Schema({},{timestamps : true})
+const hospitalSchema = new Schema({
+  name : {
+    type : String,
+    required : true,
+  },
+  addressLine1 : {
+    type : String,
+    required : true,
+  },
+  addressLine2 : {
+    type : String,
+  },
+  city : {
+    type : String,
+    required : true,
+  },
+  pincode : {
+    type : String,
+    required : true,
+  },
+  specialIn : [
+    {
+      type : String
+    }
+  ]
+},{timestamps : true})
 
-export const Doctor = mongoose.model("Doctor", doctorSchema)
+export const Hospital = mongoose.model("Hospital", hospitalSchema)
