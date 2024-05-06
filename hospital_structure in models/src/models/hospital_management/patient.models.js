@@ -1,6 +1,36 @@
 
 import mongoose from 'mongoose'
 
-const doctorSchema = new Schema({},{timestamps : true})
+const patientSchema = new Schema({
+  name : {
+    type : String,
+    required : true,
+  },
+  diagonsesWith : {
+    type : String,
+    required : true,
+  },
+  address : {
+    type : String,
+    required : true,
+  },
+  age : {
+    type : Number,
+    required : true,
+  },
+  bloodGroup : {
+    type : String,
+    required : true,
+  },
+  gender : {
+    type : String,
+    enum  : ["M", "F", "O"],
+    required : true,
+  },
+  admittedIn : {
+      type : mongoose.Schema.Types.ObjectId,
+      ref : "Hospital"
+  }
+},{timestamps : true})
 
-export const Doctor = mongoose.model("Doctor", doctorSchema)
+export const Patient = mongoose.model("Patient", patientSchema)
