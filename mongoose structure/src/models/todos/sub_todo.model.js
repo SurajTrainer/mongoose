@@ -1,20 +1,6 @@
 
-import mongoose from 'mongoose'
+import mongoose from "mongoose"
 
-const userSchema = new Schema(
-  // we can define it 2 types
-  // 1st 
-  // {username : String , email : String , }
+const subtodoSchema = new Schema({}, {timestamps : true})
 
-  // & 2nd type
-  {
-    username : {
-      type : String,
-      required : true,
-      unique : true,
-      uppercase : true
-    }
-  }
-)
-
-export const User = mongoose.model("User", userSchema);
+export const SubTodo = mongoose.model('SubTodo', subtodoSchema)
